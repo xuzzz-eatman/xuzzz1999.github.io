@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":42,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="使用Hexo框架搭建了我的blog，hexo使用markdown解析文章，能方便地生成静态网页。 同时把博客托管在github pages上。 (for free) 0x01 所需环境安装：  node.js git  0x02 github建立仓库 github新建仓库，名为 username.github.io  其中username一定是你的github用户名   0x03 安装hexo 用">
+  <meta name="description" content="使用Hexo框架搭建了我的blog，hexo使用markdown解析文章，能方便地生成静态网页。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建blog">
 <meta property="og:url" content="http://example.com/2021/02/10/%E6%90%AD%E5%BB%BAblog/index.html">
 <meta property="og:site_name" content="xuzzz&#39;s blog">
-<meta property="og:description" content="使用Hexo框架搭建了我的blog，hexo使用markdown解析文章，能方便地生成静态网页。 同时把博客托管在github pages上。 (for free) 0x01 所需环境安装：  node.js git  0x02 github建立仓库 github新建仓库，名为 username.github.io  其中username一定是你的github用户名   0x03 安装hexo 用">
+<meta property="og:description" content="使用Hexo框架搭建了我的blog，hexo使用markdown解析文章，能方便地生成静态网页。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-10T13:23:20.000Z">
-<meta property="article:modified_time" content="2021-02-10T14:06:37.914Z">
+<meta property="article:modified_time" content="2021-02-11T01:39:37.450Z">
 <meta property="article:author" content="xuzzz">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -217,10 +217,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-10 13:23:20 / 修改时间：14:06:37" itemprop="dateCreated datePublished" datetime="2021-02-10T13:23:20Z">2021-02-10</time>
+              <time title="创建时间：2021-02-10 13:23:20" itemprop="dateCreated datePublished" datetime="2021-02-10T13:23:20Z">2021-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-11 01:39:37" itemprop="dateModified" datetime="2021-02-11T01:39:37Z">2021-02-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -243,6 +249,7 @@
 
       
         <p>使用Hexo框架搭建了我的blog，hexo使用markdown解析文章，能方便地生成静态网页。</p>
+<a id="more"></a>
 <p>同时把博客托管在github pages上。 (for free)</p>
 <h2 id="0x01-所需环境"><a href="#0x01-所需环境" class="headerlink" title="0x01 所需环境"></a>0x01 所需环境</h2><p>安装：</p>
 <ul>
@@ -345,7 +352,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-%E6%89%80%E9%9C%80%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">0x01 所需环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-github%E5%BB%BA%E7%AB%8B%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">0x02 github建立仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-%E5%AE%89%E8%A3%85hexo"><span class="nav-number">3.</span> <span class="nav-text">0x03 安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-hexo%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">0x04 hexo操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-%E5%B0%86blog%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="nav-number">5.</span> <span class="nav-text">0x05 将blog部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-%E5%B8%B8%E7%94%A8%E6%98%8E%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">0x06 常用明令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">7.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-%E6%89%80%E9%9C%80%E7%8E%AF%E5%A2%83"><span class="nav-text">0x01 所需环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-github%E5%BB%BA%E7%AB%8B%E4%BB%93%E5%BA%93"><span class="nav-text">0x02 github建立仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-%E5%AE%89%E8%A3%85hexo"><span class="nav-text">0x03 安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-hexo%E6%93%8D%E4%BD%9C"><span class="nav-text">0x04 hexo操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-%E5%B0%86blog%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="nav-text">0x05 将blog部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-%E5%B8%B8%E7%94%A8%E6%98%8E%E4%BB%A4"><span class="nav-text">0x06 常用明令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-text">参考文章</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
