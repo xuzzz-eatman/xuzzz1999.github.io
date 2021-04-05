@@ -20,19 +20,24 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":42,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="keep on learning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://example.com/about/index.html">
+  <meta name="description" content="一篇blockchain的综述的总结……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blockchain Challenges and Opportunities: A Survey ">
+<meta property="og:url" content="http://example.com/2021/04/06/Blockchain-Challenges-and-Opportunities-A-Survey/index.html">
 <meta property="og:site_name" content="xuzzz&#39;s blog">
-<meta property="og:description" content="keep on learning">
+<meta property="og:description" content="一篇blockchain的综述的总结……">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-10T16:12:04.000Z">
-<meta property="article:modified_time" content="2021-02-10T08:12:04.775Z">
+<meta property="og:image" content="http://example.com/images/综述1.png">
+<meta property="og:image" content="http://example.com/images/综述2.png">
+<meta property="og:image" content="http://example.com/images/综述3.png">
+<meta property="article:published_time" content="2021-04-05T23:08:40.000Z">
+<meta property="article:modified_time" content="2021-04-05T15:18:26.098Z">
 <meta property="article:author" content="xuzzz">
+<meta property="article:tag" content="Summary">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/综述1.png">
 
-<link rel="canonical" href="http://example.com/about/">
+<link rel="canonical" href="http://example.com/2021/04/06/Blockchain-Challenges-and-Opportunities-A-Survey/">
 
 
 <script id="page-configurations">
@@ -40,13 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>about | xuzzz's blog
-</title>
+  <title>Blockchain Challenges and Opportunities: A Survey  | xuzzz's blog</title>
   
 
 
@@ -187,43 +191,156 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/06/Blockchain-Challenges-and-Opportunities-A-Survey/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="xuzzz">
+      <meta itemprop="description" content="keep on learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xuzzz's blog">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Blockchain Challenges and Opportunities: A Survey 
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">about
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2021-04-05 23:08:40 / 修改时间：15:18:26" itemprop="dateCreated datePublished" datetime="2021-04-05T23:08:40Z">2021-04-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blockchain/" itemprop="url" rel="index"><span itemprop="name">blockchain</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>一篇blockchain的综述的总结……</p>
+<a id="more"></a>
+
+<h3 id="Blockchain-Challenges-and-Opportunities-A-Survey"><a href="#Blockchain-Challenges-and-Opportunities-A-Survey" class="headerlink" title="Blockchain Challenges and Opportunities: A Survey"></a>Blockchain Challenges and Opportunities: A Survey</h3><h4 id="challenges"><a href="#challenges" class="headerlink" title="challenges:"></a>challenges:</h4><ul>
+<li>scalability:every ten minutes 1 block.the Bitcoin network is restricted to a rate of 7 transactions per second, which is incapable of dealing with high frequency trading. However, larger blocks means larger storage space and slower propagation in the network</li>
+<li>privacy leakage can also happen in blockchain even when users only make transactions with their public key and private key . User’s real IP address can even be tracked .</li>
+</ul>
+<h5 id="our-paper-focuses-on-state-of-art-blockchain-researches-including-recent-advances-and-future-trends"><a href="#our-paper-focuses-on-state-of-art-blockchain-researches-including-recent-advances-and-future-trends" class="headerlink" title="our paper focuses on state-of-art blockchain researches including recent advances and future trends"></a>our paper focuses on state-of-art blockchain researches including recent advances and future trends</h5><ol>
+<li><p>blockchain architecture</p>
+<p>block header: </p>
+<p>(i) Block version<br> (ii) Parent block hash<br> (iii) Merkle tree root hash<br> (iv) Timestamp<br> (v) nBits: current hashing target in compact format.<br> (vi) Nonce</p>
+<p>block body: a transaction counter and transactions.</p>
+<h5 id="Current-blockchain-systems-can-be-roughly-categorized-into-three-types"><a href="#Current-blockchain-systems-can-be-roughly-categorized-into-three-types" class="headerlink" title="Current blockchain systems can be roughly categorized into three types:"></a>Current blockchain systems can be roughly categorized into three types:</h5><p><em>blockchain</em>, <em>consortium blockchain</em> and <em>private blockchain</em></p>
+<img src="/images/综述1.png" alt="综述1" style="zoom:50%;">
+
+<h5 id="key-characteristics"><a href="#key-characteristics" class="headerlink" title="key characteristics"></a>key characteristics</h5><p><em>Decentralization</em>   <em>Persistency</em>   <em>Anonymity</em>   <em>Auditability</em></p>
+</li>
+<li><p>typical consensus algorithms</p>
+<p>PoW  PoS  PBFT  DPoS  </p>
+<p>Ripple  :If the received agreements have reached 80%,the transaction will be packed into the ledger. For a node, the ledger will remain correct as long as the percentage of faulty nodes in UNL is less than 20%.</p>
+<p>Tendermint:similar to PBFT,but Tendermint nodes have to lock their coins to become validators. Once a validator is found to be dishonest, it will be punished.</p>
+<img src="/images/综述2.png" alt="综述2" style="zoom:50%;">
+
+<p>several typical blockchain applications</p>
+<p>finance：</p>
+<p>IoT：</p>
+<p>Public and Social Service:</p>
+<p>Reputation System:</p>
+<p>Security and Privacy:<em>Security Enhancement</em>As shown in [15], blockchain can be used to construct a privacy- aware PKI while simultaneously improving the reliability of conventional PKIs.v</p>
+<p> ([15]Axon, L.: Privacy-awareness in blockchain-based PKI. Cdt technical paper series)</p>
+<img src="/images/综述3.png" alt="综述3" style="zoom:50%;">
+</li>
+<li><p>summarizes the technical challenges and the recent advances in this area</p>
+<ol>
+<li><p>Scalability    heavy   100 GB storage</p>
+<p>How to solve:</p>
+<p><em>Storage optimization of blockchain</em></p>
+<p><em>Redesigning blockchain</em>:key block for leader election and microblock to store transactions</p>
+</li>
+<li><p>Privacy Leakage   each public key are publicly visible</p>
+<p>How to solve:</p>
+<p><em>Mixing</em></p>
+<p><em>Anonymous</em>    In Zerocoin [55], zero-knowledge proof is used    [55]  Miers, I., Garman, C., Green, M., Rubin, A.D.: Zerocoin: Anonymous distributed e- cash from bitcoin. In: Proceedings of IEEE Symposium Security and Privacy (SP). pp. 397–411. Berkeley, CA, USA (2013)</p>
+</li>
+<li><p>Selfish mining    keep their mined blocks without broadcasting</p>
+<p>How to solve : ZeroBlock</p>
+</li>
+</ol>
+</li>
+<li><p>possible future directions</p>
+<ol>
+<li><p>blockchain testing mechanism</p>
+<p> <em>standardization phase</em> and <em>testing phase</em></p>
+</li>
+<li><p><em>Stop the tendency to centralization</em></p>
+</li>
+<li><p><em>Big data analytics</em></p>
+</li>
+<li><p><em>Smart contract</em></p>
+</li>
+<li><p><em>Artificial Intelligence</em></p>
+</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Summary/" rel="tag"># Summary</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/02/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" rel="prev" title="共识算法总结">
+      <i class="fa fa-chevron-left"></i> 共识算法总结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -274,6 +391,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Blockchain-Challenges-and-Opportunities-A-Survey"><span class="nav-text">Blockchain Challenges and Opportunities: A Survey</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#challenges"><span class="nav-text">challenges:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#our-paper-focuses-on-state-of-art-blockchain-researches-including-recent-advances-and-future-trends"><span class="nav-text">our paper focuses on state-of-art blockchain researches including recent advances and future trends</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Current-blockchain-systems-can-be-roughly-categorized-into-three-types"><span class="nav-text">Current blockchain systems can be roughly categorized into three types:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#key-characteristics"><span class="nav-text">key characteristics</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
