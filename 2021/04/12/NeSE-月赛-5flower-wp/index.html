@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":42,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":42,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="第一次参加NeSE月赛,队里的re大佬不在,于是可以出击。。。">
@@ -85,7 +85,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -250,28 +254,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>第一次参加NeSE月赛,队里的re大佬不在,于是可以出击。。。</p>
-<a id="more"></a>
-
-<h3 id="0x01-静态分析"><a href="#0x01-静态分析" class="headerlink" title="0x01 静态分析"></a>0x01 静态分析</h3><p>根据题目提示,我们知道程序中有两个字节被去掉了,导致程序无法运行,所以我们首先要定位到去掉字节的地方</p>
-<img src="/images/5flower2.png" alt="5flower2" style="zoom:50%;">
-
+        <p>第一次参加NeSE月赛,队里的re大佬不在,于是可以出击。。。 <a id="more"></a></p>
+<h3 id="x01-静态分析">0x01 静态分析</h3>
+<p>根据题目提示,我们知道程序中有两个字节被去掉了,导致程序无法运行,所以我们首先要定位到去掉字节的地方</p>
+<p><img src="/images/5flower2.png" alt="5flower2" style="zoom:50%;"></p>
 <p>进入main函数,发现0x146b处的数据无法转换成代码,估计去掉的字节就在附近。</p>
-<img src="/images/5flower1.png" alt="5flower1" style="zoom:50%;">
-
+<p><img src="/images/5flower1.png" alt="5flower1" style="zoom:50%;"></p>
 <p>查看前面的代码,发现有一个跳转到0x146b的call,而0x146b无法转换为代码,所以此处之前必定有2字节删除了,于是先尝试把前面两个字节并入0x146b看看能不能转换成代码。</p>
-<img src="/images/5flower3.png" alt="5flower3" style="zoom:50%;">
-
+<p><img src="/images/5flower3.png" alt="5flower3" style="zoom:50%;"></p>
 <p>查看hex窗口,发现大概率是前一条指令的后两个字节被删了,于是我们在 48 8D后面添加 45 B0,最后得到了删除前的代码。<img src="/images/5flower4.png" alt="5flower4" style="zoom:50%;"></p>
 <p>根据题目提示,程序还存在其他的花指令,</p>
-<img src="/images/5flower5.png" alt="5flower5" style="zoom:50%;">
-
+<p><img src="/images/5flower5.png" alt="5flower5" style="zoom:50%;"></p>
 <p>将jz patch成jmp,最后F5即可</p>
-<img src="/images/5flower6.png" alt="5flower6" style="zoom:50%;">
-
-<img src="/images/5flower7.png" alt="5flower7" style="zoom:50%;">
-
-<h3 id="0x02-解题脚本"><a href="#0x02-解题脚本" class="headerlink" title="0x02 解题脚本"></a>0x02 解题脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">re1 = [<span class="number">0x46</span>, <span class="number">0xa8</span>, <span class="number">0xb8</span>, <span class="number">0x0</span>, </span><br><span class="line"><span class="number">0x58</span>, <span class="number">0xa8</span>, <span class="number">0x79</span>, <span class="number">0xe1</span>, </span><br><span class="line"><span class="number">0xe9</span>, <span class="number">0xd9</span>, <span class="number">0x28</span>, <span class="number">0x41</span>, </span><br><span class="line"><span class="number">0x60</span>, <span class="number">0x59</span>, <span class="number">0x8</span>, <span class="number">0xd1</span>, ]</span><br><span class="line"></span><br><span class="line">re2 = [<span class="number">0xe3</span>, <span class="number">0x20</span>, <span class="number">0x4b</span>, <span class="number">0xda</span>, </span><br><span class="line"><span class="number">0x43</span>, <span class="number">0xdb</span>, <span class="number">0x4b</span>, <span class="number">0x95</span>, </span><br><span class="line"><span class="number">0xce</span>, <span class="number">0xd4</span>, <span class="number">0x4</span>, <span class="number">0x9a</span>, </span><br><span class="line"><span class="number">0xb</span>, <span class="number">0xc6</span>, <span class="number">0x2</span>, <span class="number">0x4e</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    re1[i]= ((re1[i]&gt;&gt;<span class="number">3</span>) + (re1[i]&lt;&lt;<span class="number">5</span>)) %<span class="number">0x100</span></span><br><span class="line">print(re1)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    re2[i]= ((re2[i]&gt;&gt;<span class="number">6</span>) + (re2[i]&lt;&lt;<span class="number">2</span>)) %<span class="number">0x100</span></span><br><span class="line"></span><br><span class="line">re1[<span class="number">0</span>] = re1[<span class="number">0</span>]-<span class="number">97</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">16</span>):</span><br><span class="line">    re1[i] = re1[i-<span class="number">1</span>] ^ re1[i]</span><br><span class="line">re2[<span class="number">0</span>]-=<span class="number">76</span></span><br><span class="line">re2[<span class="number">1</span>]-=<span class="number">76</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">16</span>):</span><br><span class="line">    re2[i]^=re2[i-<span class="number">2</span>]</span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> re1:</span><br><span class="line">    flag+=<span class="built_in">chr</span>(i)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> re2:</span><br><span class="line">    flag+=<span class="built_in">chr</span>(i)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/5flower6.png" alt="5flower6" style="zoom:50%;"></p>
+<p><img src="/images/5flower7.png" alt="5flower7" style="zoom:50%;"></p>
+<h3 id="x02-解题脚本">0x02 解题脚本</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">re1 = [<span class="number">0x46</span>, <span class="number">0xa8</span>, <span class="number">0xb8</span>, <span class="number">0x0</span>, </span><br><span class="line"><span class="number">0x58</span>, <span class="number">0xa8</span>, <span class="number">0x79</span>, <span class="number">0xe1</span>, </span><br><span class="line"><span class="number">0xe9</span>, <span class="number">0xd9</span>, <span class="number">0x28</span>, <span class="number">0x41</span>, </span><br><span class="line"><span class="number">0x60</span>, <span class="number">0x59</span>, <span class="number">0x8</span>, <span class="number">0xd1</span>, ]</span><br><span class="line"></span><br><span class="line">re2 = [<span class="number">0xe3</span>, <span class="number">0x20</span>, <span class="number">0x4b</span>, <span class="number">0xda</span>, </span><br><span class="line"><span class="number">0x43</span>, <span class="number">0xdb</span>, <span class="number">0x4b</span>, <span class="number">0x95</span>, </span><br><span class="line"><span class="number">0xce</span>, <span class="number">0xd4</span>, <span class="number">0x4</span>, <span class="number">0x9a</span>, </span><br><span class="line"><span class="number">0xb</span>, <span class="number">0xc6</span>, <span class="number">0x2</span>, <span class="number">0x4e</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    re1[i]= ((re1[i]&gt;&gt;<span class="number">3</span>) + (re1[i]&lt;&lt;<span class="number">5</span>)) %<span class="number">0x100</span></span><br><span class="line">print(re1)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    re2[i]= ((re2[i]&gt;&gt;<span class="number">6</span>) + (re2[i]&lt;&lt;<span class="number">2</span>)) %<span class="number">0x100</span></span><br><span class="line"></span><br><span class="line">re1[<span class="number">0</span>] = re1[<span class="number">0</span>]-<span class="number">97</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">16</span>):</span><br><span class="line">    re1[i] = re1[i-<span class="number">1</span>] ^ re1[i]</span><br><span class="line">re2[<span class="number">0</span>]-=<span class="number">76</span></span><br><span class="line">re2[<span class="number">1</span>]-=<span class="number">76</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">16</span>):</span><br><span class="line">    re2[i]^=re2[i-<span class="number">2</span>]</span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> re1:</span><br><span class="line">    flag+=<span class="built_in">chr</span>(i)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> re2:</span><br><span class="line">    flag+=<span class="built_in">chr</span>(i)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -293,7 +291,10 @@
     <a href="/2021/04/10/CertChain/" rel="prev" title="CertChain">
       <i class="fa fa-chevron-left"></i> CertChain
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/19/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-Nebula-writeup/" rel="next" title="强网杯2021 Nebula writeup">
+      强网杯2021 Nebula writeup <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -352,7 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-text">0x01 静态分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-%E8%A7%A3%E9%A2%98%E8%84%9A%E6%9C%AC"><span class="nav-text">0x02 解题脚本</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#x01-%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-text">0x01 静态分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x02-%E8%A7%A3%E9%A2%98%E8%84%9A%E6%9C%AC"><span class="nav-text">0x02 解题脚本</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +369,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -478,6 +479,8 @@
 
 
 
+
+  
 
   
 
